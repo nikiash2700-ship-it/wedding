@@ -1,7 +1,9 @@
 # Скрипт для настройки автоматической загрузки на GitHub
-# Этот скрипт создаст Git hook, который будет автоматически пушить изменения
+# Создает Git hook, который будет автоматически пушить изменения после каждого коммита
 
+Write-Host ""
 Write-Host "Настройка автоматической загрузки на GitHub..." -ForegroundColor Cyan
+Write-Host ""
 
 # Проверяем, что мы в git репозитории
 if (-not (Test-Path ".git")) {
@@ -23,16 +25,19 @@ $hookContent = @"
 
 branch=`$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
 
+echo ""
+echo "Автоматическая загрузка на GitHub..."
+
 # Пытаемся отправить изменения
 git push origin `$branch
 
 if [ `$? -eq 0 ]; then
     echo ""
-    echo "✓ Автоматически загружено на GitHub!"
-    echo "Посмотреть: https://github.com/nikiash2700-ship-it/wedding"
+    echo "Успешно загружено на GitHub!"
+    echo "https://github.com/nikiash2700-ship-it/wedding"
 else
     echo ""
-    echo "⚠ Не удалось автоматически загрузить на GitHub"
+    echo "Не удалось автоматически загрузить на GitHub"
     echo "Выполните вручную: git push origin `$branch"
 fi
 "@
@@ -40,14 +45,13 @@ fi
 $hookPath = Join-Path $hooksDir "post-commit"
 $hookContent | Out-File -FilePath $hookPath -Encoding UTF8 -NoNewline
 
-# Делаем файл исполняемым (для Git Bash)
-Write-Host "✓ Git hook создан!" -ForegroundColor Green
+Write-Host "Git hook создан!" -ForegroundColor Green
 Write-Host ""
 Write-Host "Теперь после каждого коммита изменения будут автоматически загружаться на GitHub!" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Как использовать:" -ForegroundColor Yellow
-Write-Host "1. Внесите изменения в файлы" -ForegroundColor White
-Write-Host "2. Выполните: git add ." -ForegroundColor White
-Write-Host "3. Выполните: git commit -m 'Ваше сообщение'" -ForegroundColor White
-Write-Host "4. Изменения автоматически загрузятся на GitHub!" -ForegroundColor White
-
+Write-Host "   1. Внесите изменения в файлы" -ForegroundColor White
+Write-Host "   2. Выполните: git add ." -ForegroundColor White
+Write-Host "   3. Выполните: git commit -m 'Ваше сообщение'" -ForegroundColor White
+Write-Host "   4. Изменения автоматически загрузятся на GitHub!" -ForegroundColor White
+Write-Host ""
