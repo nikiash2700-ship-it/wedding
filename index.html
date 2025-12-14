@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title fade-in">Мы женимся!</h1>
+            <div class="names fade-in-delay">
+                <span class="name">Алина</span>
+                <span class="ampersand">&</span>
+                <span class="name">Имя</span>
+            </div>
+            <p class="hero-date fade-in-delay-2">15 Июня 2024</p>
+            <div class="scroll-indicator">
+                <span>↓</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Timer -->
+    <section class="countdown-section">
+        <h2 class="section-title">До нашего дня осталось</h2>
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Дней</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Часов</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Минут</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Секунд</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="story-section" id="story">
+        <div class="container">
+            <h2 class="section-title">Наша история</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>Мы встретились в самый неожиданный момент и сразу поняли, что это судьба. Каждый день вместе наполнен любовью, смехом и счастьем.</p>
+                    <p>Теперь мы хотим разделить этот особенный день с самыми близкими и дорогими нам людьми.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wedding Details -->
+    <section class="details-section" id="details">
+        <div class="container">
+            <h2 class="section-title">Детали свадьбы</h2>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">📅</div>
+                    <h3>Дата</h3>
+                    <p>15 Июня 2024</p>
+                    <p class="detail-time">15:00</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">📍</div>
+                    <h3>Место</h3>
+                    <p>Название ресторана/зала</p>
+                    <p class="detail-address">Адрес места проведения</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">👗</div>
+                    <h3>Дресс-код</h3>
+                    <p>Вечерний наряд</p>
+                    <p class="detail-note">Мы будем рады видеть вас в праздничных нарядах</p>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">🎁</div>
+                    <h3>Подарки</h3>
+                    <p>Ваше присутствие - лучший подарок!</p>
+                    <p class="detail-note">Если хотите поздравить нас, мы будем благодарны за конверт</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program -->
+    <section class="program-section" id="program">
+        <div class="container">
+            <h2 class="section-title">Программа дня</h2>
+            <div class="program-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">15:00</div>
+                    <div class="timeline-content">
+                        <h3>Церемония</h3>
+                        <p>Торжественная регистрация брака</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">16:00</div>
+                    <div class="timeline-content">
+                        <h3>Фотосессия</h3>
+                        <p>Совместные фотографии с гостями</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">17:00</div>
+                    <div class="timeline-content">
+                        <h3>Банкет</h3>
+                        <p>Праздничный ужин и развлечения</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">22:00</div>
+                    <div class="timeline-content">
+                        <h3>Танцы</h3>
+                        <p>Танцевальная программа до утра</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Наши моменты</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">📸</div>
+                    <p class="gallery-note">Добавьте ваши фотографии</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">📸</div>
+                    <p class="gallery-note">Добавьте ваши фотографии</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">📸</div>
+                    <p class="gallery-note">Добавьте ваши фотографии</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">📸</div>
+                    <p class="gallery-note">Добавьте ваши фотографии</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="rsvp-section" id="rsvp">
+        <div class="container">
+            <h2 class="section-title">Анкета гостя</h2>
+            <p class="rsvp-subtitle">Пожалуйста, заполните анкету, чтобы мы могли лучше организовать праздник</p>
+            <form class="rsvp-form" id="rsvpForm">
+                <!-- Имя и фамилия -->
+                <div class="form-group">
+                    <label for="name">Ваше имя и фамилия *</label>
+                    <input type="text" id="name" name="name" placeholder="Иван Иванов" required>
+                </div>
+
+                <!-- Телефон -->
+                <div class="form-group">
+                    <label for="phone">Ваш телефон *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (900) 123-45-67" required>
+                </div>
+
+                <!-- Присутствие -->
+                <div class="form-group">
+                    <label>Планируете ли вы присутствовать на свадьбе? *</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="yes" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Да, с удовольствием</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="no" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">К сожалению, не могу</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Напитки (множественный выбор) -->
+                <div class="form-group">
+                    <label>Какие напитки предпочитаете? (можно выбрать несколько)</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="drinks" value="Шампанское">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Шампанское</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="drinks" value="Вино сухое белое">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Вино сухое белое</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="drinks" value="Вино красное полусладкое">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Вино красное полусладкое</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="drinks" value="Водка">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Водка</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="drinks" value="Коньяк">
+                            <span class="checkbox-custom"></span>
+                            <span class="checkbox-text">Коньяк</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Дети -->
+                <div class="form-group">
+                    <label>Вы будете с детьми? *</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="children" value="yes" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Да</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="children" value="no" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Нет</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Количество детей (показывается только если выбрано "Да") -->
+                <div class="form-group" id="childrenCountGroup" style="display: none;">
+                    <label for="childrenCount">Укажите количество детей</label>
+                    <input type="number" id="childrenCount" name="childrenCount" placeholder="0" min="0" value="0">
+                </div>
+
+                <!-- Горячее -->
+                <div class="form-group">
+                    <label>Какое горячее предпочитаете? *</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="mainCourse" value="Рыба" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Рыба</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="mainCourse" value="Мясо" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Мясо</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Второй день -->
+                <div class="form-group">
+                    <label>Планируете ли вы остаться на второй день? *</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="secondDay" value="yes" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Да</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="secondDay" value="no" required>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text">Нет</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Пожелания -->
+                <div class="form-group">
+                    <label for="message">Ваши пожелания (необязательно)</label>
+                    <textarea id="message" name="message" placeholder="Напишите что-нибудь приятное..." rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <span class="btn-text">Отправить анкету</span>
+                    <span class="btn-loader" style="display: none;">⏳</span>
+                </button>
+            </form>
+            <div class="rsvp-success" id="rsvpSuccess" style="display: none;">
+                <div class="success-icon">✓</div>
+                <p>Спасибо! Мы получили вашу анкету ❤️</p>
+                <p class="success-subtitle">Скоро мы свяжемся с вами для уточнения деталей</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Невеста</h3>
+                    <p>Алина</p>
+                    <p><a href="tel:+79001234567">+7 (900) 123-45-67</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Жених</h3>
+                    <p>Имя</p>
+                    <p><a href="tel:+79001234568">+7 (900) 123-45-68</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Мы будем рады видеть вас на нашей свадьбе!</p>
+        <p class="footer-heart">❤️</p>
+    </footer>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#home" class="nav-link">Главная</a>
+        <a href="#story" class="nav-link">История</a>
+        <a href="#details" class="nav-link">Детали</a>
+        <a href="#program" class="nav-link">Программа</a>
+        <a href="#gallery" class="nav-link">Галерея</a>
+        <a href="#rsvp" class="nav-link">RSVP</a>
+        <a href="#contact" class="nav-link">Контакты</a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
