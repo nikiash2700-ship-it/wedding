@@ -139,14 +139,22 @@ ${formData.message}
     // Отправляем в Telegram всем админам (не ждем ответа - показываем успех сразу)
     let sendPromise;
     if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_IDS.length > 0) {
+        console.log('Отправка анкеты админам:', TELEGRAM_CHAT_IDS);
         // Отправляем всем админам
         sendPromise = Promise.all(
-            TELEGRAM_CHAT_IDS.map(chatId => 
-                sendToTelegram(telegramMessage, chatId).catch(err => {
-                    console.error(`Ошибка отправки в Telegram для ${chatId} (но данные сохранены):`, err);
-                    // Не показываем ошибку пользователю, т.к. данные сохранены
-                })
-            )
+            TELEGRAM_CHAT_IDS.map(chatId => {
+                console.log(`Отправка сообщения админу: ${chatId}`);
+                return sendToTelegram(telegramMessage, chatId)
+                    .then(result => {
+                        console.log(`✅ Сообщение успешно отправлено админу ${chatId}`);
+                        return result;
+                    })
+                    .catch(err => {
+                        console.error(`❌ Ошибка отправки в Telegram для ${chatId}:`, err);
+                        // Не показываем ошибку пользователю, т.к. данные сохранены
+                        return null;
+                    });
+            })
         );
     } else {
         sendPromise = Promise.resolve();
