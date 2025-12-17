@@ -153,9 +153,9 @@ body.loaded {
 }
 
 .container {
-    max-width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 20px;
 }
 
 /* Hero Section */
@@ -1174,7 +1174,6 @@ body.loaded {
         transform: translateY(-15%);
         margin-top: -10vh;
     }
-
     .hero-title {
         font-size: 2.5rem;
         line-height: 1.2;
