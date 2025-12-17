@@ -68,9 +68,15 @@ const btnSubmit = document.querySelector('.btn-submit');
 const btnText = document.querySelector('.btn-text');
 const btnLoader = document.querySelector('.btn-loader');
 
-// Настройки Telegram бота
+// Настройки Telegram бота (глобальные переменные)
 const TELEGRAM_BOT_TOKEN = '8548278322:AAEqnfAgxru4XpzWMYx8dz5J1oWojalbAOM'; // Токен вашего бота
-const TELEGRAM_CHAT_ID = '647597624'; // Ваш Chat ID в Telegram
+
+// Chat ID всех админов (анкеты будут приходить всем)
+const TELEGRAM_CHAT_IDS = [
+    '647597624',  // Первый админ (ваш ID)
+    '475843256',  // Второй админ
+    '506432416'   // Третий админ
+];
 
 rsvpForm.addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -130,13 +136,23 @@ ${formData.message}
     });
     localStorage.setItem('rsvps', JSON.stringify(rsvps));
 
-    // Отправляем в Telegram (не ждем ответа - показываем успех сразу)
+    // Отправляем в Telegram всем админам (не ждем ответа - показываем успех сразу)
     let sendPromise;
-    if (TELEGRAM_BOT_TOKEN !== 'YOUR_BOT_TOKEN' && TELEGRAM_CHAT_ID !== 'YOUR_CHAT_ID') {
-        sendPromise = sendToTelegram(telegramMessage).catch(err => {
-            console.error('Ошибка отправки в Telegram (но данные сохранены):', err);
-            // Не показываем ошибку пользователю, т.к. данные сохранены
-        });
+    if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_IDS.length > 0) {
+        // Отправляем всем админам
+        sendPromise = Promise.all(
+            TELEGRAM_CHAT_IDS.map(chatId => {
+                return sendToTelegram(telegramMessage, chatId)
+                    .then(result => {
+                        return result;
+                    })
+                    .catch(err => {
+                        console.error(`Ошибка отправки в Telegram для ${chatId}:`, err);
+                        // Не показываем ошибку пользователю, т.к. данные сохранены
+                        return null;
+                    });
+            })
+        );
     } else {
         sendPromise = Promise.resolve();
     }
@@ -164,11 +180,11 @@ ${formData.message}
 });
 
 // Функция отправки в Telegram (оптимизированная)
-async function sendToTelegram(message) {
+async function sendToTelegram(message, chatId) {
     const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
     
     const formData = new URLSearchParams();
-    formData.append('chat_id', TELEGRAM_CHAT_ID);
+    formData.append('chat_id', chatId);
     formData.append('text', message);
     formData.append('parse_mode', 'HTML');
     
@@ -201,12 +217,12 @@ async function sendToTelegram(message) {
         } else {
             console.warn('Прямой запрос не сработал, пробуем через iframe...', error);
         }
-        return await sendToTelegramViaIframe(message);
+        return await sendToTelegramViaIframe(message, chatId);
     }
 }
 
 // Альтернативный метод через iframe (обход CORS)
-async function sendToTelegramViaIframe(message) {
+async function sendToTelegramViaIframe(message, chatId) {
     return new Promise((resolve, reject) => {
         // Создаем скрытую форму и отправляем через iframe
         const form = document.createElement('form');
@@ -225,7 +241,7 @@ async function sendToTelegramViaIframe(message) {
         
         // Добавляем поля формы
         const fields = {
-            chat_id: TELEGRAM_CHAT_ID,
+            chat_id: chatId,
             text: message,
             parse_mode: 'HTML'
         };
