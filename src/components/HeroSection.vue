@@ -147,7 +147,7 @@ onMounted(() => {
   }
   
   .hero-date-wrapper {
-    top: clamp(320px, 35vh, 380px);
+    top: clamp(260px, 28vh, 300px);
   }
 }
 
@@ -164,7 +164,7 @@ onMounted(() => {
   }
   
   .hero-date-wrapper {
-    top: clamp(280px, 32vh, 340px);
+    top: clamp(230px, 26vh, 280px);
   }
   
   .hero-date {
@@ -186,7 +186,7 @@ onMounted(() => {
   }
   
   .hero-date-wrapper {
-    top: clamp(240px, 28vh, 300px);
+    top: clamp(200px, 24vh, 260px);
   }
   
   .hero-date {
@@ -208,7 +208,7 @@ onMounted(() => {
   }
   
   .hero-date-wrapper {
-    top: clamp(200px, 24vh, 260px);
+    top: clamp(170px, 20vh, 230px);
   }
   
   .hero-date {
